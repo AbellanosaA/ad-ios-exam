@@ -1,11 +1,12 @@
-<?php // File: app/Post.php
+<?php
 
 namespace App;
-use Illuminate\Database\Eloquent\Model;
-use Corcel\Model\Post as Corcel;
 
-class Todo extends Corcel
+use Illuminate\Database\Eloquent\Model;
+
+class Todo extends Model
 {
-	protected $postType = 'todo';
-    protected $connection = 'wordpress';    
+    protected $table = 'todos';
+
+    protected $fillable = ['isactive'];
 }
