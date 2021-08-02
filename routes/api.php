@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
-// Route::get('v1/todo', 'ApiController@getAllTodos');
 Route::get('v1/todo', 'ApiController@getTodo');
 Route::post('v1/todo', 'ApiController@createTodo');
 Route::put('v1/todo/{id}', 'ApiController@updateTodo');
