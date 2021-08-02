@@ -8094,27 +8094,3 @@ function is_php_version_compatible( $required ) {
 function wp_fuzzy_number_match( $expected, $actual, $precision = 1 ) {
 	return abs( (float) $expected - (float) $actual ) <= $precision;
 }
-
-function create_posttype() {
-register_post_type( 'todo',
-array(
-  'labels' => array(
-   'name' => __( 'Todo' ),
-   'singular_name' => __( 'Todos' )
-  ),
-  'public' => true,
-  'has_archive' => false,
-  'rewrite' => array('slug' => 'todo'),
-  'supports' => array ( 'title', 'editor', 'custom-fields', 'page-attributes', 'thumbnail' ),
- )
-);
-}
-add_action( 'init', 'create_posttype' );
-
-
-add_action( 'wp_enqueue_scripts', 'wp_enqueues' );
-function wp_enqueues() {    
-    if( is_singular( array( 'anime', 'manga' ) ) ) {
-        wp_enqueue_style( 'wp-todo-css', WP_MANGA_URI . 'assets/css/todo.css' );
-    }
-}
